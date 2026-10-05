@@ -1,0 +1,36 @@
+HDFS Commands - Retail Demand Forecasting
+
+1. Create project directories
+
+hdfs dfs -mkdir -p /data/retail/raw
+hdfs dfs -mkdir -p /data/retail/processed
+hdfs dfs -mkdir -p /data/retail/results
+
+2. Upload the raw dataset
+
+hdfs dfs -put train.csv /data/retail/raw/
+
+3. Verify uploaded dataset
+
+hdfs dfs -ls /data/retail/raw
+
+4. View the beginning of the dataset
+
+hdfs dfs -cat /data/retail/raw/train.csv | head
+
+5. Check HDFS file size
+
+hdfs dfs -du -h /data/retail/raw/train.csv
+
+6. Check project directory structure
+
+hdfs dfs -ls -R /data/retail
+
+7. Verify Spark forecast results
+
+hdfs dfs -ls /data/retail/results/forecast_predictions
+
+8. View sample forecast output
+
+hdfs dfs -cat /data/retail/results/forecast_predictions/part-* | head
+
